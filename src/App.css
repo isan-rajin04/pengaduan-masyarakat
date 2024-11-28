@@ -1,0 +1,879 @@
+/* General CSS resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling untuk body */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #0099cc, #006699);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin-right: 20px;
+}
+
+.navbar-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar-item a:hover {
+  color: #ffcc00;
+}
+
+/* Hover Effect for Navbar Items */
+.navbar-item a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* Login and Logout Button */
+.login-link {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-link:hover {
+  background-color: white;
+  color: #006699;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: #006699;
+}
+
+/* Responsiveness for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .navbar-item {
+    margin: 10px 0;
+  }
+}
+
+
+/* Styling untuk ikon profil */
+.icon-link {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: background 0.3s, border-color 0.3s;
+  background: transparent;
+}
+
+.icon-link i {
+  font-size: 24px;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.icon-link i:hover {
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+/* Styling untuk animasi fade-in dan slide-up */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section (Landing Section) Styling */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-image: url('https://ppid.sukoharjokab.go.id/wp-content/uploads/2017/08/pano.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  position: relative;
+  opacity: 0; /* Hide by default */
+  animation: fadeIn 1.5s ease-out forwards, slideUp 1.5s ease-out forwards; /* Apply animation */
+  animation-delay: 0.2s; /* Start animation after delay */
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards, slideUp 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #f4f4f4;
+}
+
+/* Tombol Buat Pengaduan dengan Animasi */
+.hero-section .btn {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-section .btn:hover {
+  background-color: #333;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Features Section */
+.features-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+  gap: 20px; /* Memberikan jarak antar elemen */
+}
+
+.feature-box {
+  flex: 1 1 30%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.4s, box-shadow 0.4s;
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards, slideUp 1.2s ease-out forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 150, 255, 0.1); /* Efek cahaya pada hover */
+  transition: all 0.5s;
+  transform: skewX(30deg);
+}
+
+.feature-box:hover::before {
+  left: 125%;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #007BFF; /* Warna ikon */
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* About Section */
+.about-section {
+  padding: 50px;
+  background-color: #f4f4f4;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards, slideUp 1s ease-out forwards;
+}
+
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 50px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards, slideUp 1s ease-out forwards;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: #eeeeee;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+
+
+/* Styling untuk Pantauan Status */
+/* Desain Halaman Pantau Status */
+.pantau-status {
+  padding: 20px;
+  background: url('https://www.lifehack.bg/wp-content/uploads/2016/06/how_it_works_gif.gif') no-repeat center center fixed; /* Ganti dengan URL gambar background */
+  background-size: cover; /* Pastikan gambar menutupi seluruh elemen */
+  background-position: center;
+  background-attachment: fixed; /* Membuat background tetap saat scroll */
+  border-radius: 8px;
+  margin: 20px 0;
+  color: white; /* Ganti teks menjadi putih agar kontras dengan background */
+}
+
+.pantau-status h1 {
+  text-align: center;
+  color: #000000;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.pantau-status p {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Tabel Style */
+.styled-table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8); /* Memberikan latar belakang putih transparan agar kontras dengan background */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.styled-table thead {
+  background-color: #2575fc;
+  color: white;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.styled-table th {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.styled-table td {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Menambahkan efek hover pada baris tabel */
+.styled-table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.styled-table tr:hover {
+  background-color: #e3f2fd;
+}
+
+.status-proses {
+  background-color: #4caf50;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+.status-tidak {
+  background-color: #f44336;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+
+/* Admin Dashboard styling */
+/* Admin Dashboard */
+.admin-dashboard {
+  padding: 20px;
+  background-color: #f9f9f9;
+  background-image: url('https://8f430952.rocketcdn.me/wp-content/uploads/2018/11/upgrade-premium-animation-dribbble.gif'); /* Ganti dengan path gambar kamu */
+  background-size: cover; /* Gambar akan menutupi seluruh halaman */
+  background-position: center; /* Gambar berada di tengah */
+  background-attachment: fixed; /* Gambar tetap saat halaman di-scroll */
+  color: #fff; /* Mengubah teks menjadi putih agar kontras dengan background */
+}
+
+.admin-dashboard h1 {
+  font-size: 2.5em;
+  color: #000000; /* Menyesuaikan warna teks */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pengaduan-list h2 {
+  font-size: 1.8em;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.styled-table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.8); /* Latar belakang tabel setengah transparan */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.styled-table th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.styled-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.styled-table tr:hover {
+  background-color: #f4f4f4;
+}
+
+.styled-table td button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.styled-table td button:hover {
+  background-color: #e60000;
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+  .styled-table th, .styled-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* Styling untuk laman About Us */
+.about-us-page {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f9f9f9;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Header */
+.about-header {
+  text-align: center;
+  background: #007bff;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  animation: slideIn 1.5s ease-out;
+}
+
+.about-header h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Gambar Pemerintahan */
+.about-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.gov-image {
+  width: 80%;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+}
+
+.gov-image:hover {
+  transform: scale(1.05);
+}
+
+/* Konten */
+.about-content {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.about-content h2 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.about-content p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.8;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Tim Kami */
+.about-team {
+  background: #eef;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeIn 2s ease-out;
+}
+
+.about-team h3 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.about-team ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-team li {
+  background: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-team li:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+.about-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Tata Cara Pengaduan */
+.tata-cara-container {
+  padding: 40px;
+  max-width: 900px;
+  margin: 30px auto;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: scale(0.98);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.tata-cara-container h1 {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: bold;
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.step {
+  background-color: #ecf0f1;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(0.95);
+  transition: transform 0.3s ease-in-out;
+  opacity: 0;
+  animation: fadeInStep 1s ease-out forwards;
+}
+
+.step:hover {
+  transform: scale(1.05);
+}
+
+.step h2 {
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.step p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInStep {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Styling untuk halaman login */
+/* app.css */
+/* Login container to center the login box */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Styling for the login box */
+.login-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Title of the login form */
+h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Input field container */
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Input field styling */
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Focused input field styling */
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: #4b6cb7;
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* Hover effect for input fields */
+input[type="text"]:hover, input[type="password"]:hover {
+  border-color: #9ab1f7;
+}
+
+/* Placeholder styling */
+input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Button styling */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4b6cb7;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.login-btn:hover {
+  background-color: #3a5a96;
+}
+
+/* Error message styling */
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Animations for login form appearance */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .login-box {
+    background-color: #333;
+    color: #fff;
+  }
+  input[type="text"], input[type="password"] {
+    border: 2px solid #555;
+    background-color: #444;
+    color: #fff;
+  }
+  input::placeholder {
+    color: #bbb;
+  }
+  .login-btn {
+    background-color: #6a89cc;
+  }
+  .login-btn:hover {
+    background-color: #5470b6;
+  }
+}
+.link {
+  color: #4b6cb7;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.link:hover {
+  color: #3a5a96;
+}
+.register-link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.register-link button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.register-link button:hover {
+  background-color: #45a049;
+}
